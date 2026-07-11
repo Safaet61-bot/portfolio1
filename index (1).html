@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md. Safaet Zahangir — Data Analyst &amp; Researcher</title>
+<meta name="description" content="Portfolio of Md. Safaet Zahangir — Data Analyst and CSE researcher. SQL, Power BI, Excel dashboards, published research, and academic leadership.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0b1120;
+    --ink-soft:#121a2e;
+    --ink-card:#151f38;
+    --line:rgba(230,232,240,0.09);
+    --line-strong:rgba(230,232,240,0.16);
+    --text:#e9e8e2;
+    --text-dim:#8d96ac;
+    --teal:#3fe0c9;
+    --teal-dim:#26a794;
+    --amber:#f2a65a;
+    --amber-dim:#c9803a;
+    --radius:14px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--text);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--teal); color:#04120f; }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+  h1,h2,h3,h4{ font-family:'Fraunces', serif; font-weight:600; margin:0; letter-spacing:-0.01em; }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.76rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--teal);
+    display:inline-block;
+  }
+  section{ padding:104px 0; border-top:1px solid var(--line); position:relative; }
+  section:first-of-type{ border-top:none; }
+
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.in{ opacity:1; transform:translateY(0); }
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(11,17,32,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600; font-size:1rem; letter-spacing:0.02em;
+    display:flex; align-items:center; gap:8px;
+  }
+  .logo .dot{ width:7px; height:7px; border-radius:50%; background:var(--teal); box-shadow:0 0 10px var(--teal); }
+  nav.links{ display:flex; gap:28px; font-size:0.88rem; }
+  nav.links a{
+    text-decoration:none; color:var(--text-dim);
+    position:relative; padding-bottom:3px;
+    transition:color .2s ease;
+  }
+  nav.links a:hover{ color:var(--text); }
+  nav.links a::after{
+    content:""; position:absolute; left:0; right:0; bottom:-2px; height:1px;
+    background:var(--teal); transform:scaleX(0); transform-origin:left;
+    transition:transform .25s ease;
+  }
+  nav.links a:hover::after{ transform:scaleX(1); }
+  .nav-cta{
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem;
+    border:1px solid var(--line-strong); padding:8px 14px; border-radius:100px;
+    text-decoration:none; color:var(--text); white-space:nowrap;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .nav-cta:hover{ border-color:var(--teal); background:rgba(63,224,201,0.08); }
+  .nav-toggle{ display:none; background:none; border:1px solid var(--line-strong); color:var(--text); width:38px; height:38px; border-radius:8px; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:172px 0 96px;
+    border-top:none;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center;
+  }
+  .terminal{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.86rem;
+    color:var(--teal);
+    background:var(--ink-soft);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 18px;
+    display:inline-flex; align-items:center; gap:10px;
+    margin-bottom:28px;
+    min-height:22px;
+  }
+  .terminal .bars{ display:flex; gap:5px; margin-right:4px; }
+  .terminal .bars span{ width:8px; height:8px; border-radius:50%; background:var(--line-strong); }
+  .caret{ display:inline-block; width:8px; height:1.1em; background:var(--teal); vertical-align:-2px; animation:blink 1s steps(1) infinite; }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  .hero h1{
+    font-size:clamp(2.6rem, 5.6vw, 4.4rem);
+    line-height:1.02;
+    color:#fff;
+  }
+  .hero h1 em{ font-style:italic; color:var(--teal); font-weight:500; }
+  .hero .role-line{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--text-dim);
+    font-size:1rem;
+    margin-top:20px;
+  }
+  .hero .role-line b{ color:var(--amber); font-weight:600; }
+
+  .toggle-row{
+    display:flex; align-items:center; gap:14px; margin-top:30px; flex-wrap:wrap;
+  }
+  .toggle{
+    display:inline-flex; background:var(--ink-soft); border:1px solid var(--line-strong);
+    border-radius:100px; padding:4px; gap:4px;
+  }
+  .toggle button{
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem;
+    border:none; background:transparent; color:var(--text-dim);
+    padding:9px 16px; border-radius:100px; cursor:pointer;
+    transition:background .25s ease, color .25s ease;
+  }
+  .toggle button.active{ background:var(--teal); color:#04120f; font-weight:600; }
+  .toggle-hint{ font-size:0.82rem; color:var(--text-dim); }
+
+  .hero p.lede{
+    margin-top:22px; color:var(--text-dim); font-size:1.05rem; max-width:52ch;
+  }
+  .hero-ctas{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size:0.86rem;
+    padding:13px 22px; border-radius:9px; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-primary{ background:var(--teal); color:#04120f; font-weight:600; }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(63,224,201,0.25); }
+  .btn-ghost{ border:1px solid var(--line-strong); color:var(--text); }
+  .btn-ghost:hover{ border-color:var(--amber); color:var(--amber); }
+
+  .hero-photo-wrap{ position:relative; }
+  .hero-photo{
+    position:relative; border-radius:20px; overflow:hidden;
+    border:1px solid var(--line-strong);
+    aspect-ratio:4/5;
+    background:var(--ink-soft);
+  }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; filter:saturate(0.92) contrast(1.02); }
+  .hero-photo::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(11,17,32,0) 55%, rgba(11,17,32,0.65) 100%);
+  }
+  .hero-tag{
+    position:absolute; left:16px; bottom:16px; z-index:2;
+    font-family:'IBM Plex Mono', monospace; font-size:0.74rem;
+    background:rgba(11,17,32,0.7); border:1px solid var(--line-strong);
+    padding:7px 12px; border-radius:100px; backdrop-filter:blur(6px);
+  }
+  .hero-tag .dot{ width:6px; height:6px; border-radius:50%; background:var(--teal); display:inline-block; margin-right:6px; box-shadow:0 0 8px var(--teal); }
+
+  .stat-strip{
+    margin-top:60px; display:grid; grid-template-columns:repeat(4,1fr);
+    border:1px solid var(--line); border-radius:14px; overflow:hidden;
+  }
+  .stat{ padding:22px 20px; border-left:1px solid var(--line); }
+  .stat:first-child{ border-left:none; }
+  .stat .num{ font-family:'Fraunces', serif; font-size:1.9rem; color:#fff; font-weight:600; }
+  .stat .label{ font-size:0.78rem; color:var(--text-dim); margin-top:4px; }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:60px; }
+  .about-grid p{ color:var(--text-dim); font-size:1.02rem; }
+  .about-grid p + p{ margin-top:16px; }
+  .quote-block{
+    font-family:'Fraunces', serif; font-style:italic; font-size:1.3rem;
+    color:var(--text); border-left:2px solid var(--teal); padding-left:20px;
+    margin-top:24px; line-height:1.5;
+  }
+  .facts{ margin-top:28px; display:grid; gap:14px; }
+  .fact{ display:flex; justify-content:space-between; border-bottom:1px dashed var(--line); padding-bottom:10px; font-size:0.92rem; }
+  .fact span:first-child{ color:var(--text-dim); font-family:'IBM Plex Mono', monospace; font-size:0.8rem; }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:20px; margin-top:44px; }
+  .skill-card{
+    background:var(--ink-soft); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px 26px 22px; transition:border-color .25s ease, transform .25s ease;
+  }
+  .skill-card:hover{ border-color:var(--line-strong); transform:translateY(-3px); }
+  .skill-card h3{ font-size:1.06rem; color:#fff; }
+  .skill-card .icon-row{ display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .skill-card .icon-row .badge{
+    width:34px; height:34px; border-radius:9px; display:flex; align-items:center; justify-content:center;
+    background:rgba(63,224,201,0.12); color:var(--teal); font-family:'IBM Plex Mono', monospace; font-size:0.78rem; font-weight:600;
+  }
+  .skill-card.academic .icon-row .badge{ background:rgba(242,166,90,0.14); color:var(--amber); }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.76rem;
+    border:1px solid var(--line-strong); color:var(--text-dim);
+    padding:6px 11px; border-radius:100px;
+    transition:all .2s ease;
+  }
+  .skill-card:hover .tag{ color:var(--text); }
+  .tag.hl{ border-color:var(--teal); color:var(--teal); }
+  .tag.hl-amber{ border-color:var(--amber); color:var(--amber); }
+
+  /* ---------- PROJECTS ---------- */
+  .project{
+    display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:center;
+    padding:46px 0; border-bottom:1px solid var(--line);
+  }
+  .project:last-child{ border-bottom:none; }
+  .project:nth-child(even) .project-media{ order:2; }
+  .project-media{
+    position:relative; border-radius:var(--radius); overflow:hidden;
+    border:1px solid var(--line-strong); background:var(--ink-soft);
+  }
+  .project-media img{ width:100%; height:100%; object-fit:cover; aspect-ratio:16/10; transition:transform .5s ease; }
+  .project-media:hover img{ transform:scale(1.045); }
+  .project-media .view-link{
+    position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:flex-end;
+    padding:16px; opacity:0; transition:opacity .25s ease;
+    background:linear-gradient(0deg, rgba(11,17,32,0.75), transparent 45%);
+  }
+  .project-media:hover .view-link{ opacity:1; }
+  .view-link span{
+    font-family:'IBM Plex Mono', monospace; font-size:0.75rem;
+    background:var(--teal); color:#04120f; padding:8px 14px; border-radius:100px; font-weight:600;
+  }
+
+  /* ---------- CAROUSEL (UrbanCart slideshow) ---------- */
+  .project-media.carousel{ padding:0; }
+  .carousel-track{
+    position:relative; width:100%; aspect-ratio:16/10; overflow:hidden;
+  }
+  .carousel-slide{
+    position:absolute; inset:0; opacity:0; transition:opacity .55s ease;
+    display:block;
+  }
+  .carousel-slide.is-active{ opacity:1; z-index:1; }
+  .carousel-slide img{ width:100%; height:100%; object-fit:cover; }
+  .carousel-arrow{
+    position:absolute; top:50%; transform:translateY(-50%); z-index:3;
+    width:36px; height:36px; border-radius:50%; border:1px solid var(--line-strong);
+    background:rgba(11,17,32,0.65); color:#fff; font-size:1.3rem; line-height:1;
+    cursor:pointer; backdrop-filter:blur(4px);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; transition:opacity .25s ease, background .2s ease;
+  }
+  .carousel:hover .carousel-arrow{ opacity:1; }
+  .carousel-arrow.prev{ left:12px; }
+  .carousel-arrow.next{ right:12px; }
+  .carousel-arrow:hover{ background:var(--teal); color:#04120f; border-color:var(--teal); }
+  .carousel-dots{
+    position:absolute; left:0; right:0; bottom:12px; z-index:3;
+    display:flex; justify-content:center; gap:6px;
+  }
+  .carousel-dots button{
+    width:6px; height:6px; border-radius:50%; border:none; background:rgba(255,255,255,0.35);
+    cursor:pointer; padding:0; transition:background .2s ease, width .2s ease;
+  }
+  .carousel-dots button.is-active{ background:var(--teal); width:16px; border-radius:4px; }
+  .carousel-repo-link{
+    position:absolute; right:14px; bottom:14px; z-index:3;
+    font-family:'IBM Plex Mono', monospace; font-size:0.75rem; text-decoration:none;
+    background:var(--teal); color:#04120f; padding:8px 14px; border-radius:100px; font-weight:600;
+    opacity:0; transform:translateY(6px); transition:opacity .25s ease, transform .25s ease;
+  }
+  .carousel:hover .carousel-repo-link{ opacity:1; transform:translateY(0); }
+  .project-num{ font-family:'IBM Plex Mono', monospace; color:var(--text-dim); font-size:0.8rem; }
+  .project h3{ font-size:1.55rem; margin-top:8px; color:#fff; }
+  .project .desc{ color:var(--text-dim); margin-top:12px; }
+  .kpi-row{ display:flex; gap:24px; margin-top:20px; flex-wrap:wrap; }
+  .kpi{ }
+  .kpi .n{ font-family:'Fraunces', serif; font-size:1.5rem; color:var(--teal); font-weight:600; }
+  .kpi .l{ font-size:0.76rem; color:var(--text-dim); font-family:'IBM Plex Mono', monospace; }
+  .project .tag-row{ margin-top:20px; }
+  .project-links{ margin-top:22px; display:flex; gap:14px; }
+  .project-links a{
+    font-family:'IBM Plex Mono', monospace; font-size:0.82rem; text-decoration:none;
+    color:var(--text); border-bottom:1px solid var(--line-strong); padding-bottom:2px;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .project-links a:hover{ color:var(--teal); border-color:var(--teal); }
+
+  .side-projects{
+    margin-top:56px; display:grid; grid-template-columns:repeat(2,1fr); gap:18px;
+  }
+  .side-card{
+    border:1px dashed var(--line-strong); border-radius:var(--radius); padding:20px 22px;
+  }
+  .side-card h4{ color:#fff; font-size:1rem; }
+  .side-card p{ color:var(--text-dim); font-size:0.9rem; margin:8px 0 0; }
+
+  /* ---------- PUBLICATIONS ---------- */
+  .pub{
+    display:flex; gap:22px; padding:26px 0; border-bottom:1px solid var(--line);
+    align-items:flex-start;
+  }
+  .pub:last-child{ border-bottom:none; }
+  .pub-mark{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--amber);
+    border:1px solid var(--amber-dim); border-radius:8px; padding:8px 10px; white-space:nowrap; margin-top:2px;
+  }
+  .pub h3{ font-size:1.12rem; color:#fff; line-height:1.4; }
+  .pub .venue{ font-family:'IBM Plex Mono', monospace; font-size:0.82rem; color:var(--text-dim); margin-top:8px; }
+
+  /* ---------- EDUCATION TIMELINE ---------- */
+  .timeline{ position:relative; margin-top:50px; padding-left:34px; }
+  .timeline::before{
+    content:""; position:absolute; left:6px; top:6px; bottom:6px; width:1px; background:var(--line-strong);
+  }
+  .tl-item{ position:relative; padding-bottom:44px; }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-item::before{
+    content:""; position:absolute; left:-34px; top:4px; width:13px; height:13px; border-radius:50%;
+    background:var(--ink); border:2px solid var(--teal);
+  }
+  .tl-item .yr{ font-family:'IBM Plex Mono', monospace; color:var(--teal); font-size:0.82rem; }
+  .tl-item h3{ font-size:1.15rem; color:#fff; margin-top:6px; }
+  .tl-item .school{ color:var(--text-dim); font-size:0.94rem; margin-top:4px; }
+  .tl-item .meta{ margin-top:8px; }
+  .tl-item .meta span{
+    font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--amber);
+    border:1px solid var(--amber-dim); padding:4px 10px; border-radius:100px;
+  }
+
+  /* ---------- ACHIEVEMENTS / LEADERSHIP ---------- */
+  .achieve-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:44px; }
+  .achieve-card{
+    background:var(--ink-soft); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px;
+  }
+  .achieve-card .yr{ font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--text-dim); }
+  .achieve-card h3{ font-size:1.06rem; color:#fff; margin-top:10px; }
+  .achieve-card p{ color:var(--text-dim); font-size:0.92rem; margin-top:8px; }
+
+  /* ---------- COMMUNITY GALLERY ---------- */
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:18px; margin-top:40px;
+  }
+  .gallery-item{
+    margin:0; border-radius:12px; overflow:hidden; border:1px solid var(--line);
+    background:var(--ink-soft); position:relative;
+  }
+  .gallery-item img{
+    width:100%; aspect-ratio:4/5; object-fit:cover; display:block; transition:transform .4s ease;
+  }
+  .gallery-item:hover img{ transform:scale(1.06); }
+  .gallery-item figcaption{
+    position:absolute; left:0; right:0; bottom:0; z-index:2;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:#fff;
+    padding:26px 12px 10px; background:linear-gradient(0deg, rgba(11,17,32,0.9), transparent);
+  }
+  .gallery-item.missing{
+    border:1px dashed var(--line-strong); display:flex; align-items:flex-end;
+    min-height:220px; aspect-ratio:4/5;
+  }
+  .gallery-item.missing img{ display:none; }
+  .gallery-item.missing::before{
+    content:"＋"; position:absolute; top:50%; left:50%; transform:translate(-50%,-60%);
+    font-size:1.6rem; color:var(--text-dim);
+  }
+  .gallery-item.missing figcaption{ background:none; position:static; padding:14px 12px; color:var(--text-dim); }
+  .gallery-note{
+    margin-top:18px; font-size:0.82rem; color:var(--text-dim);
+  }
+  .gallery-note code{
+    font-family:'IBM Plex Mono', monospace; background:var(--ink-soft); border:1px solid var(--line);
+    padding:2px 6px; border-radius:5px; color:var(--teal); font-size:0.8rem;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-inner{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:50px; align-items:start; }
+  .contact-inner h2{ font-size:clamp(2rem, 4vw, 3rem); color:#fff; }
+  .contact-links{ margin-top:30px; display:grid; gap:14px; }
+  .contact-link{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 20px; border:1px solid var(--line); border-radius:12px;
+    text-decoration:none; color:var(--text); transition:border-color .2s ease, background .2s ease;
+  }
+  .contact-link:hover{ border-color:var(--teal); background:rgba(63,224,201,0.06); }
+  .contact-link .k{ font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--text-dim); }
+  .contact-link .v{ font-weight:500; }
+  .contact-form{ background:var(--ink-soft); border:1px solid var(--line); border-radius:var(--radius); padding:28px; }
+  .contact-form label{ font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--text-dim); display:block; margin-bottom:6px; }
+  .contact-form input, .contact-form textarea{
+    width:100%; background:var(--ink); border:1px solid var(--line-strong); border-radius:8px;
+    color:var(--text); padding:11px 13px; font-family:'IBM Plex Sans', sans-serif; font-size:0.92rem;
+    margin-bottom:16px;
+  }
+  .contact-form textarea{ min-height:100px; resize:vertical; }
+  .contact-form button{
+    width:100%; background:var(--teal); color:#04120f; border:none; padding:13px; border-radius:9px;
+    font-family:'IBM Plex Mono', monospace; font-weight:600; cursor:pointer; transition:transform .2s ease;
+  }
+  .contact-form button:hover{ transform:translateY(-2px); }
+  .form-note{ font-size:0.78rem; color:var(--text-dim); margin-top:10px; }
+
+  footer{
+    padding:34px 0 50px; text-align:center; color:var(--text-dim); font-size:0.82rem;
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  @media (max-width: 880px){
+    nav.links{ display:none; }
+    .nav-toggle{ display:block; }
+    .hero{ padding-top:132px; }
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-photo-wrap{ order:-1; max-width:260px; }
+    .stat-strip{ grid-template-columns:repeat(2,1fr); }
+    .stat:nth-child(3){ border-left:none; }
+    .about-grid{ grid-template-columns:1fr; }
+    .skills-grid{ grid-template-columns:1fr; }
+    .project{ grid-template-columns:1fr; }
+    .project:nth-child(even) .project-media{ order:0; }
+    .achieve-grid{ grid-template-columns:1fr; }
+    .contact-inner{ grid-template-columns:1fr; }
+    .side-projects{ grid-template-columns:1fr; }
+    .gallery-grid{ grid-template-columns:repeat(2,1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo"><span class="dot"></span>SAFAET.SZ</div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Research</a>
+      <a href="#education">Education</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#community">Community</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Get in touch →</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero wrap" id="top">
+    <div class="hero-grid">
+      <div>
+        <div class="terminal">
+          <span class="bars"><span></span><span></span><span></span></span>
+          <span id="typeline"></span><span class="caret"></span>
+        </div>
+        <h1>Md. Safaet<br>Zahangir<em>.</em></h1>
+        <div class="role-line">CSE Graduate, DIU · Trainee Officer @ Blue Planet Group → <b id="roleWord">Data Analyst</b></div>
+
+        <div class="toggle-row">
+          <div class="toggle" id="roleToggle">
+            <button class="active" data-role="analyst">Recruiting for Data</button>
+            <button data-role="educator">Recruiting for Teaching</button>
+          </div>
+          <span class="toggle-hint">↑ tap to see what matters to you</span>
+        </div>
+
+        <p class="lede" id="leadText">I turn messy spreadsheets and databases into dashboards people actually use — built in SQL, Power BI and Excel, backed by two published research papers and a habit of explaining things clearly.</p>
+
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#projects">View my work</a>
+          <a class="btn btn-ghost" href="assets/Safaet_Zahangir_CV.pdf" download>Download CV</a>
+        </div>
+
+        <div class="stat-strip">
+          <div class="stat"><div class="num">1,200+</div><div class="label">records analyzed in flagship SQL project</div></div>
+          <div class="stat"><div class="num">4</div><div class="label">dashboards shipped (SQL · Power BI · Excel)</div></div>
+          <div class="stat"><div class="num">2</div><div class="label">papers in IEEE &amp; Springer Nature</div></div>
+          <div class="stat"><div class="num">300+</div><div class="label">students led as association president</div></div>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap">
+        <div class="hero-photo">
+          <img src="assets/profile.jpg" alt="Portrait of Md. Safaet Zahangir">
+          <div class="hero-tag"><span class="dot"></span>Gaibandha → Dhaka, Bangladesh</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="wrap reveal">
+    <div class="eyebrow">01 — Profile</div>
+    <div class="about-grid">
+      <div>
+        <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); color:#fff;">Data-driven by training, a teacher by instinct.</h2>
+        <div class="quote-block">"The goal of a data analyst is not to write queries — it is to find answers that drive business decisions."</div>
+      </div>
+      <div>
+        <p>I'm a Computer Science &amp; Engineering graduate from Daffodil International University, currently working as a Trainee Officer at Blue Planet Group while splitting my attention between practical data analysis and academic research. On the analysis side, I build dashboards in SQL, Power BI and Excel that turn raw operational data — orders, production lines, HR records — into decisions someone can actually act on.</p>
+        <p>On the research side, I've co-authored two papers applying deep learning to medical imaging (bone density and eye disease diagnosis), presented at an IEEE conference and published with Springer Nature. I've also led a 300+ member student association, taken part in community service work like winter relief distribution, and served as a session analyst at Job Utshav 2024 — so explaining technical work to a room of people is second nature, not an afterthought.</p>
+        <div class="facts">
+          <div class="fact"><span>LOCATION</span><span>Dhaka, Bangladesh (from Gaibandha)</span></div>
+          <div class="fact"><span>CURRENT ROLE</span><span>Trainee Officer, Blue Planet Group</span></div>
+          <div class="fact"><span>DEGREE</span><span>B.Sc. in CSE, Daffodil International University · 2022–2026 (Graduated)</span></div>
+          <div class="fact"><span>CGPA</span><span>3.82 / 4.00 · Dean's List Awardee</span></div>
+          <div class="fact"><span>FOCUS</span><span>Data Analytics (SQL, Power BI, Excel) · ML/DL Research</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section id="experience" class="wrap reveal">
+    <div class="eyebrow">02 — Experience</div>
+    <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); color:#fff;">Where I'm working right now.</h2>
+
+    <div class="timeline" style="margin-top:44px;">
+      <div class="tl-item">
+        <div class="yr mono" style="display:inline-flex; align-items:center; gap:8px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--teal);display:inline-block;box-shadow:0 0 8px var(--teal);"></span>PRESENT</div>
+        <h3>Trainee Officer</h3>
+        <div class="school">Blue Planet Group</div>
+        <div class="meta"><span>Applying data analysis &amp; reporting skills in a professional, full-time setting</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section id="skills" class="wrap reveal">
+    <div class="eyebrow">03 — Toolkit</div>
+    <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); color:#fff;">What I actually use, day to day.</h2>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="icon-row"><span class="badge">SQL</span><h3>Data Analysis &amp; BI</h3></div>
+        <p style="color:var(--text-dim); font-size:0.92rem; margin:0;">The core of every dashboard I ship — from raw tables to a decision-ready view.</p>
+        <div class="tag-row">
+          <span class="tag hl">SQL / PostgreSQL</span>
+          <span class="tag hl">Power BI (DAX, modeling)</span>
+          <span class="tag hl">Excel (Pivot, Power Query)</span>
+          <span class="tag">Joins &amp; CTEs</span>
+          <span class="tag">Window Functions</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="icon-row"><span class="badge">{ }</span><h3>Programming &amp; ETL</h3></div>
+        <p style="color:var(--text-dim); font-size:0.92rem; margin:0;">Enough engineering to clean data, automate pipelines, and build small tools.</p>
+        <div class="tag-row">
+          <span class="tag hl">Python</span>
+          <span class="tag">C</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">HTML / CSS / Tailwind</span>
+          <span class="tag">ETL pipelines</span>
+        </div>
+      </div>
+      <div class="skill-card academic">
+        <div class="icon-row"><span class="badge">R&amp;D</span><h3>Research &amp; AI</h3></div>
+        <p style="color:var(--text-dim); font-size:0.92rem; margin:0;">Applied machine learning for two peer-reviewed medical-imaging papers.</p>
+        <div class="tag-row">
+          <span class="tag hl-amber">Machine Learning</span>
+          <span class="tag hl-amber">Deep Learning</span>
+          <span class="tag">Research Methodology</span>
+          <span class="tag">Literature Review</span>
+          <span class="tag">Academic Writing</span>
+        </div>
+      </div>
+      <div class="skill-card academic">
+        <div class="icon-row"><span class="badge">👥</span><h3>Teaching &amp; Communication</h3></div>
+        <p style="color:var(--text-dim); font-size:0.92rem; margin:0;">Built leading a 300+ member student body and presenting findings clearly.</p>
+        <div class="tag-row">
+          <span class="tag hl-amber">Mentoring &amp; leadership</span>
+          <span class="tag hl-amber">Session &amp; report writing</span>
+          <span class="tag">Public speaking</span>
+          <span class="tag">English document analysis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects" class="wrap reveal">
+    <div class="eyebrow">04 — Key Projects</div>
+    <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); color:#fff;">Dashboards built to answer real questions.</h2>
+
+    <div class="project">
+      <div class="project-media carousel" id="ucCarousel">
+        <div class="carousel-track">
+          <a class="carousel-slide is-active" href="https://github.com/Safaet61-bot/Urban-Cart-" target="_blank" rel="noopener">
+            <img src="https://raw.githubusercontent.com/Safaet61-bot/Urban-Cart-/main/slides/slide-01.jpg" alt="UrbanCart cover slide" loading="lazy">
+          </a>
+          <a class="carousel-slide" href="https://github.com/Safaet61-bot/Urban-Cart-" target="_blank" rel="noopener">
+            <img src="https://raw.githubusercontent.com/Safaet61-bot/Urban-Cart-/main/slides/slide-02.jpg" alt="UrbanCart project agenda slide" loading="lazy">
+          </a>
+          <a class="carousel-slide" href="https://github.com/Safaet61-bot/Urban-Cart-" target="_blank" rel="noopener">
+            <img src="https://raw.githubusercontent.com/Safaet61-bot/Urban-Cart-/main/slides/slide-04.jpg" alt="UrbanCart total orders and unique customers slide" loading="lazy">
+          </a>
+          <a class="carousel-slide" href="https://github.com/Safaet61-bot/Urban-Cart-" target="_blank" rel="noopener">
+            <img src="https://raw.githubusercontent.com/Safaet61-bot/Urban-Cart-/main/slides/slide-09.jpg" alt="UrbanCart total revenue and AOV slide" loading="lazy">
+          </a>
+          <a class="carousel-slide" href="https://github.com/Safaet61-bot/Urban-Cart-" target="_blank" rel="noopener">
+            <img src="https://raw.githubusercontent.com/Safaet61-bot/Urban-Cart-/main/slides/slide-14.jpg" alt="UrbanCart gender vs category purchasing patterns slide" loading="lazy">
+          </a>
+          <a class="carousel-slide" href="https://github.com/Safaet61-bot/Urban-Cart-" target="_blank" rel="noopener">
+            <img src="https://raw.githubusercontent.com/Safaet61-bot/Urban-Cart-/main/slides/slide-20.jpg" alt="UrbanCart average items per order by payment method slide" loading="lazy">
+          </a>
+        </div>
+        <button class="carousel-arrow prev" aria-label="Previous slide" type="button">‹</button>
+        <button class="carousel-arrow next" aria-label="Next slide" type="button">›</button>
+        <div class="carousel-dots"></div>
+        <a class="carousel-repo-link" href="https://github.com/Safaet61-bot/Urban-Cart-" target="_blank" rel="noopener">View repository →</a>
+      </div>
+      <div>
+        <div class="project-num">01 / SQL &amp; Business Intelligence</div>
+        <h3>UrbanCart Retail Shop Analytics</h3>
+        <p class="desc">A PostgreSQL-powered BI project analyzing 1,200 orders across a 5-table star schema — answering 25 real business questions on revenue, customer behaviour, payments and product affinity, then packaging the findings into a presentation deck.</p>
+        <div class="kpi-row">
+          <div class="kpi"><div class="n">100%</div><div class="l">repeat customer rate</div></div>
+          <div class="kpi"><div class="n">7/10</div><div class="l">top pairs cross-sell a power bank</div></div>
+          <div class="kpi"><div class="n">25</div><div class="l">business questions answered</div></div>
+        </div>
+        <div class="tag-row">
+          <span class="tag hl">PostgreSQL</span><span class="tag">CTEs</span><span class="tag">Self-JOIN</span><span class="tag">Window functions</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Safaet61-bot/Urban-Cart-" target="_blank" rel="noopener">GitHub repo ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-media">
+        <a href="https://github.com/Safaet61-bot/rmg-production-powerbi-dashboard" target="_blank" rel="noopener">
+          <img src="https://raw.githubusercontent.com/Safaet61-bot/rmg-production-powerbi-dashboard/main/Overview%20Dashboard%20.png" alt="RMG Production Analytics Power BI dashboard" loading="lazy">
+          <div class="view-link"><span>View repository →</span></div>
+        </a>
+      </div>
+      <div>
+        <div class="project-num">02 / Power BI &amp; DAX</div>
+        <h3>RMG Production Analytics Dashboard</h3>
+        <p class="desc">A multi-page Power BI dashboard tracking 4 years of garment-manufacturing data across 3 factories — knitting, cutting, sewing efficiency, quality control and shipment performance, modeled on a star schema with custom DAX measures.</p>
+        <div class="kpi-row">
+          <div class="kpi"><div class="n">3</div><div class="l">factories, Jan 2022 – Nov 2025</div></div>
+          <div class="kpi"><div class="n">34.17%</div><div class="l">on-time shipment rate flagged as critical</div></div>
+          <div class="kpi"><div class="n">18</div><div class="l">live KPI cards on the overview page</div></div>
+        </div>
+        <div class="tag-row">
+          <span class="tag hl">Power BI</span><span class="tag">DAX</span><span class="tag">Star schema</span><span class="tag">Power Query</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Safaet61-bot/rmg-production-powerbi-dashboard" target="_blank" rel="noopener">GitHub repo ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-media">
+        <a href="https://github.com/Safaet61-bot/excel-hr-dashboard" target="_blank" rel="noopener">
+          <img src="https://raw.githubusercontent.com/Safaet61-bot/excel-hr-dashboard/main/image.png" alt="Excel HR Department Performance dashboard" loading="lazy">
+          <div class="view-link"><span>View repository →</span></div>
+        </a>
+      </div>
+      <div>
+        <div class="project-num">03 / Excel</div>
+        <h3>HR Department Performance Dashboard</h3>
+        <p class="desc">An interactive Excel dashboard built with Pivot Tables, Power Query and slicers to monitor headcount, salary distribution, leave patterns, skills and performance ratings across departments and regions.</p>
+        <div class="kpi-row">
+          <div class="kpi"><div class="n">50</div><div class="l">employees across 5 departments</div></div>
+          <div class="kpi"><div class="n">2.6/5</div><div class="l">average performance rating flagged</div></div>
+          <div class="kpi"><div class="n">60%</div><div class="l">workforce on contract or part-time</div></div>
+        </div>
+        <div class="tag-row">
+          <span class="tag hl">Excel</span><span class="tag">Pivot Tables</span><span class="tag">Power Query</span><span class="tag">Slicers</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Safaet61-bot/excel-hr-dashboard" target="_blank" rel="noopener">GitHub repo ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-projects">
+      <div class="side-card">
+        <h4>Online Banking Dashboard — Power BI</h4>
+        <p>Interactive dashboard visualizing SQL data for a banking dataset, with dynamic charts, tables and filters for exploring key metrics.</p>
+      </div>
+      <div class="side-card">
+        <h4>Egg Diary — JavaScript</h4>
+        <p>A small web app built to track daily egg collection, sales and calculations for the family's chicken farm.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PUBLICATIONS ================= -->
+  <section id="publications" class="wrap reveal">
+    <div class="eyebrow">05 — Research &amp; Publications</div>
+    <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); color:#fff;">Peer-reviewed work in applied deep learning.</h2>
+
+    <div style="margin-top:36px;">
+      <div class="pub">
+        <div class="pub-mark">IEEE</div>
+        <div>
+          <h3>A Comparative Analysis of Transfer Learning Models for Osteoporosis Identification on X-Ray Images</h3>
+          <div class="venue">Presented at IEEE Qpain Conference</div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-mark">Springer</div>
+        <div>
+          <h3>Enhancing Diagnostic Accuracy in Ophthalmology Using VGG-19 with Multi-Fold Cross-Validation Techniques</h3>
+          <div class="venue">Published with Springer Nature</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EDUCATION ================= -->
+  <section id="education" class="wrap reveal">
+    <div class="eyebrow">06 — Education</div>
+    <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); color:#fff;">Academic record.</h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="yr">2022 — 2026 · Graduated</div>
+        <h3>B.Sc. in Computer Science &amp; Engineering</h3>
+        <div class="school">Daffodil International University (DIU), Dhaka, Bangladesh</div>
+        <div class="meta"><span>CGPA 3.82 / 4.00 · Dean's List Awardee</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="yr">2017 — 2019</div>
+        <h3>Higher Secondary Certificate (HSC), Science</h3>
+        <div class="school">Gaibandha Govt. College, Gaibandha, Bangladesh</div>
+        <div class="meta"><span>GPA 4.92 / 5.00</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="yr">2012 — 2017</div>
+        <h3>Secondary School Certificate (SSC), Science</h3>
+        <div class="school">Gaibandha Govt. Boys High School, Gaibandha</div>
+        <div class="meta"><span>GPA 4.91 / 5.00</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LEADERSHIP / ACHIEVEMENTS ================= -->
+  <section id="leadership" class="wrap reveal">
+    <div class="eyebrow">07 — Leadership &amp; Achievements</div>
+    <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); color:#fff;">Outside the spreadsheet.</h2>
+
+    <div class="achieve-grid">
+      <div class="achieve-card">
+        <div class="yr">2023 — 2025</div>
+        <h3>Advisor &amp; Ex-President, Gaibandha Students Association</h3>
+        <p>Led 300+ students and organized 10+ programs, ensuring smooth execution and strong engagement.</p>
+      </div>
+      <div class="achieve-card">
+        <div class="yr">2024</div>
+        <h3>Session Analyst, Job Utshav</h3>
+        <p>Took keynotes from guest speakers and prepared summary reports, helping keep sessions running smoothly.</p>
+      </div>
+      <div class="achieve-card">
+        <div class="yr">Nov 2022</div>
+        <h3>Dean's List Awardee</h3>
+        <p>Awarded for outstanding semester results and consistently exceptional academic performance.</p>
+      </div>
+      <div class="achieve-card">
+        <div class="yr">Nov 2023</div>
+        <h3>Duke of Edinburgh Awardee</h3>
+        <p>Recognized for completing service, skills and an adventurous journey with dedication and teamwork.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMMUNITY / SOCIAL IMPACT ================= -->
+  <section id="community" class="wrap reveal">
+    <div class="eyebrow">08 — Community &amp; Social Impact</div>
+    <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); color:#fff;">Giving back, on and off campus.</h2>
+    <p style="color:var(--text-dim); max-width:60ch; margin-top:14px;">A few moments from association work and volunteering — as President of the Gaibandha Students Association and as a Duke of Edinburgh Awardee.</p>
+
+    <div class="gallery-grid">
+      <figure class="gallery-item">
+        <img src="assets/social/winter-relief-1.jpg" alt="Winter relief distribution drive" loading="lazy" onerror="this.closest('.gallery-item').classList.add('missing')">
+        <figcaption>Winter Relief Distribution</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="assets/social/association-1.jpg" alt="Gaibandha Students Association event" loading="lazy" onerror="this.closest('.gallery-item').classList.add('missing')">
+        <figcaption>Gaibandha Students Association — event</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="assets/social/association-2.jpg" alt="Gaibandha Students Association gathering" loading="lazy" onerror="this.closest('.gallery-item').classList.add('missing')">
+        <figcaption>Gaibandha Students Association — gathering</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="assets/social/duke-of-edinburgh.jpg" alt="Duke of Edinburgh award activity" loading="lazy" onerror="this.closest('.gallery-item').classList.add('missing')">
+        <figcaption>Duke of Edinburgh — service &amp; expedition</figcaption>
+      </figure>
+    </div>
+    <p class="gallery-note">Add your photos to <code>assets/social/</code> using the filenames above and they'll appear here automatically — see <code>HOW_TO_PUBLISH.md</code> for exact steps.</p>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="wrap reveal">
+    <div class="eyebrow">09 — Contact</div>
+    <div class="contact-inner">
+      <div>
+        <h2>Hiring for a data role, or inviting me to teach or present? Let's talk.</h2>
+        <p style="color:var(--text-dim); margin-top:16px; max-width:48ch;">I usually reply within a day. Email is fastest, WhatsApp works too.</p>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:zahangir15-5132@diu.edu.bd">
+            <span><span class="k">EMAIL</span><br><span class="v">zahangir15-5132@diu.edu.bd</span></span>
+            <span>↗</span>
+          </a>
+          <a class="contact-link" href="tel:+8801793205061">
+            <span><span class="k">PHONE</span><br><span class="v">+880 1793 205061</span></span>
+            <span>↗</span>
+          </a>
+          <a class="contact-link" href="https://github.com/Safaet61-bot" target="_blank" rel="noopener">
+            <span><span class="k">GITHUB</span><br><span class="v">github.com/Safaet61-bot</span></span>
+            <span>↗</span>
+          </a>
+          <a class="contact-link" id="linkedinLink" href="https://www.linkedin.com/in/md-safaet-zahangir/" target="_blank" rel="noopener">
+            <span><span class="k">LINKEDIN</span><br><span class="v">linkedin.com/in/md-safaet-zahangir</span></span>
+            <span>↗</span>
+          </a>
+        </div>
+      </div>
+      <div class="contact-form">
+        <form id="contactForm">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@company.com" required>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="What are you looking to build or discuss?" required></textarea>
+          <button type="submit">Send message</button>
+        </form>
+        <p class="form-note">Sending this opens your own email app with the message pre-filled, addressed to me — nothing goes through a third-party server. Prefer typing directly? Use the email link on the left instead.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © <span id="year"></span> Md. Safaet Zahangir. Built with plain HTML, CSS &amp; JS — no framework required.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // typewriter query line
+  const lines = [
+    "SELECT role FROM career WHERE curiosity = TRUE;",
+    "-- 1,200+ rows analyzed. 2 papers published.",
+    "-- Ready to run: portfolio.load();"
+  ];
+  const el = document.getElementById('typeline');
+  let li = 0, ci = 0, deleting = false;
+  function typeLoop(){
+    const current = lines[li];
+    if(!deleting){
+      ci++;
+      el.textContent = current.slice(0, ci);
+      if(ci === current.length){ deleting = true; setTimeout(typeLoop, 1400); return; }
+    } else {
+      ci--;
+      el.textContent = current.slice(0, ci);
+      if(ci === 0){ deleting = false; li = (li+1) % lines.length; }
+    }
+    setTimeout(typeLoop, deleting ? 22 : 34);
+  }
+  typeLoop();
+
+  // role toggle
+  const toggle = document.getElementById('roleToggle');
+  const roleWord = document.getElementById('roleWord');
+  const leadText = document.getElementById('leadText');
+  const copy = {
+    analyst: {
+      word: "Data Analyst",
+      lead: "I turn messy spreadsheets and databases into dashboards people actually use — built in SQL, Power BI and Excel, backed by two published research papers and a habit of explaining things clearly."
+    },
+    educator: {
+      word: "Aspiring Educator",
+      lead: "I've led 300+ students as association president, presented research at an IEEE conference, and published with Springer Nature — I care about making technical ideas easy to follow, in a classroom or a boardroom."
+    }
+  };
+  toggle.addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if(!btn) return;
+    toggle.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const r = copy[btn.dataset.role];
+    roleWord.textContent = r.word;
+    leadText.textContent = r.lead;
+    document.querySelectorAll('.tag.hl-amber').forEach(t => t.style.transform = btn.dataset.role === 'educator' ? 'scale(1.06)' : 'scale(1)');
+  });
+
+  // Contact form → opens the visitor's email app, pre-filled, addressed to you.
+  // No sign-up, no third-party service, works the moment the page is published.
+  (function(){
+    const form = document.getElementById('contactForm');
+    if(!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      const subject = encodeURIComponent('Portfolio contact from ' + name);
+      const body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
+      window.location.href = 'mailto:zahangir15-5132@diu.edu.bd?subject=' + subject + '&body=' + body;
+    });
+  })();
+
+  // UrbanCart slideshow carousel
+  (function(){
+    const root = document.getElementById('ucCarousel');
+    if(!root) return;
+    const slides = Array.from(root.querySelectorAll('.carousel-slide'));
+    const dotsWrap = root.querySelector('.carousel-dots');
+    let idx = 0, timer;
+
+    slides.forEach((_, i) => {
+      const b = document.createElement('button');
+      if(i === 0) b.classList.add('is-active');
+      b.setAttribute('aria-label', 'Go to slide ' + (i+1));
+      b.addEventListener('click', () => go(i));
+      dotsWrap.appendChild(b);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    function go(i){
+      slides[idx].classList.remove('is-active');
+      dots[idx].classList.remove('is-active');
+      idx = (i + slides.length) % slides.length;
+      slides[idx].classList.add('is-active');
+      dots[idx].classList.add('is-active');
+    }
+    function next(){ go(idx + 1); }
+    function prev(){ go(idx - 1); }
+
+    root.querySelector('.carousel-arrow.next').addEventListener('click', (e) => { e.preventDefault(); next(); restart(); });
+    root.querySelector('.carousel-arrow.prev').addEventListener('click', (e) => { e.preventDefault(); prev(); restart(); });
+
+    function restart(){
+      clearInterval(timer);
+      timer = setInterval(next, 4200);
+    }
+    root.addEventListener('mouseenter', () => clearInterval(timer));
+    root.addEventListener('mouseleave', restart);
+    restart();
+  })();
+
+  // scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){ entry.target.classList.add('in'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(elm => observer.observe(elm));
+</script>
+
+</body>
+</html>
